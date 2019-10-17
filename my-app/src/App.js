@@ -38,8 +38,9 @@ class App extends React.Component {
           dc:type ?type ;
           dct:created ?year ;
           dc:title ?title .
+       FILTER (xsd:integer(?year))
        FILTER langMatches(lang(?title), "ned")
-      } LIMIT 50
+      } LIMIT 500
       `
       const runQuery = (url, query) => {
         // Call the url with the query attached, output data
@@ -50,7 +51,6 @@ class App extends React.Component {
           delete data.title["xml:lang"]
         ));
         let result = json.results.bindings;
-        // let unique = [...new Set(result.map(object => object.title.value))];
         let unique = [];
         for(let i=0; i<result.length; i++){
           if(unique.includes(json.results.bindings[i].title.value)) {
