@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Objects from "./components/Object";
 import "./App.css";
 import Header from "./components/layout/Header";
@@ -34,18 +35,29 @@ class App extends React.Component {
 
   //Search a place
   searchPlace = (place) => {
+    console.log(place);
     this.setState({place: place})
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="Container">
-          <Header />
-          <SearchPlace place={this.searchPlace} />
-          <Objects objects={this.state.test} toggleLiked={this.toggleLiked} />
+      <Router>
+        <div className="App">
+          <div className="Container">
+            <Header />
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <SearchPlace place={this.searchPlace} />
+              </React.Fragment>
+            )} />
+            <Route path="/overview" render={props => (
+              <React.Fragment>
+                <Objects objects={this.state.test} toggleLiked={this.toggleLiked} />
+              </React.Fragment>
+            )} />
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

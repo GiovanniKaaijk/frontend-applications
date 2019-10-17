@@ -21,7 +21,7 @@ submit = (e) => {
             type="text"
             name="place"
             placeholder="Wat is jouw favoriete bestemming?"
-            value={this.state.place}
+            // value={this.state.place}
             onChange={this.change}
           />
           <input type="submit" value="Submit" />
