@@ -3,19 +3,19 @@ import PropTypes from "prop-types";
 export class SingleItem extends Component {
   getStyle = () => {
     return {
-      backgroundColor: this.props.object.id % 2 === 0 ? "#f4f4f4" : "#000000",
-      color: this.props.object.id % 2 === 1 ? "#fff" : "#000000"
+      
     };
   };
 
   render() {
-    const { id, title } = this.props.object;
+    const cho = this.props.object.cho.value;
+    const title = this.props.object.title.value;
     return (
       <div style={this.getStyle()}>
         <p>
           <input
             type="checkbox"
-            onChange={this.props.toggleLiked.bind(this, id)}
+            onChange={this.props.toggleLiked.bind(this, cho.value)}
           />{" "}
           {title}
         </p>

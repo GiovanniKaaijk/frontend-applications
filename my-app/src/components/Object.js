@@ -4,9 +4,10 @@ import SingleItem from "./SingleItem";
 
 class Objects extends React.Component {
   render() {
+    //console.log(this.props)
     return this.props.objects.map(object => (
       <SingleItem
-        key={object.id}
+        key={object.cho.value}
         object={object}
         toggleLiked={this.props.toggleLiked}
       />
