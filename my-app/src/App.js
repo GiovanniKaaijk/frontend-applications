@@ -9,7 +9,6 @@ const fetch = require("node-fetch");
 class App extends React.Component {
   state = {
     data: [],
-//  {id: 1, title: "Test", liked: false},{id: 2,title: "Test2",liked: false},
     place: '',
   };
 
@@ -59,7 +58,7 @@ class App extends React.Component {
     }
     runQuery(url, query);
   }
-  
+
   //Toggle liked
   toggleLiked = (id) => {
     this.setState({
