@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Search from '../images/search-icon.svg';
 export class searchPlace extends Component {
 
   state = {
@@ -15,7 +15,7 @@ submit = (e) => {
 
   render() {
     return (
-      <div>
+      <div className="form">
         <form onSubmit={this.submit}>
           <input
             type="text"
@@ -24,7 +24,7 @@ submit = (e) => {
             value={this.state.place}
             onChange={this.change}
           />
-          <input type="submit" value="Submit" />
+          <button type="submit"><img src={Search} alt="button"></img></button>
         </form>
       </div>
     );

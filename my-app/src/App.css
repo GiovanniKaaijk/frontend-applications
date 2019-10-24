@@ -12,3 +12,107 @@ a {
   color: #333;
   text-decoration: none;
 }
+
+header div {
+  display: flex;
+} 
+
+header h1 {
+  text-align: left;
+  flex: 8;
+  margin: .3em .2em;
+}
+
+header a {
+  margin: auto;
+  margin-right: 1em;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #fff;
+}
+.App .home {
+  min-height: 100vh;
+  /* https://unsplash.com/photos/6bXvYyAYVrE */
+  background-image: url('./images/worldmap.jpeg');
+  background-position: center;
+  background-size: cover;
+  overflow-y: hidden;
+}
+
+.App .form {
+  display: flex;
+}
+
+.App form {
+  margin: 20em auto 0;
+  background-color: rgba(256,256,256,0.8);
+  border-radius: 8px;
+  padding: 1em;
+  position: relative;
+}
+
+.App form input {
+  border: none;
+  padding: .5em;
+  border-radius: 4px;
+}
+
+.App form input:first-of-type {
+  width: 25em;
+}
+
+.App form button {
+  width: 5em;
+  background-color: #333;
+  position: absolute;
+  right: 16px;
+  height: 25px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.App form button img {
+  height: 12px;
+}
+.render {
+  width: 100%;
+}
+
+.render img{
+    width: 200px;
+    height: auto;
+}
+
+.timeline {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  margin-bottom: 100px;
+  border-bottom: 1px solid #000;
+}
+
+.timeline::-webkit-scrollbar { display: none !important }
+
+.timeline img {
+  width: 10px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.timeline div {
+  margin-left: 50px;
+}
+.overview {
+  min-height: 100vh;
+  padding-top: 65px;
+  background-color: rgba(51, 51, 51, 0.027);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}

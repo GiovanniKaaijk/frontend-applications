@@ -1,25 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import pinpoint from '../images/pinpoint.svg';
 export class SingleItem extends Component {
-  getStyle = () => {
-    return {
-      
-    };
-  };
 
+  
   render() {
-    const cho = this.props.object.cho.value;
-    const title = this.props.object.title.value;
+    let uri = this.props.object.cho.value;
     return (
-      <div style={this.getStyle()}>
-        <p>
-          <input
-            type="checkbox"
-            onChange={this.props.toggleLiked.bind(this, cho.value)}
-          />{" "}
-          {title}
-        </p>
-      </div>
+      <div>
+        <span>{this.props.object.year.value}</span>
+        <img src={pinpoint} alt="pinpoint" onClick={this.props.renderData.bind(this, uri)} />
+     </div>
     );
   }
 }
