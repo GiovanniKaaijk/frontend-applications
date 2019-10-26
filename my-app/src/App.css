@@ -61,7 +61,7 @@ header {
   border-radius: 4px;
 }
 
-.App form input:first-of-type {
+.App form > input:first-of-type {
   width: 25em;
 }
 
@@ -115,4 +115,8 @@ header {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+.filters {
+  display: flex;
+  flex-direction: column;
 }

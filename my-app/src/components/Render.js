@@ -7,10 +7,10 @@ export class Render extends Component {
     const image = this.props.render.img;
     return (
       <div className="render">
-          <input
+          {/* <input
             type="checkbox"
             onChange={this.props.toggleLiked.bind(this, uri)}
-          />
+          /> */}
           <h1>{title}</h1> <img src={image} alt={title} />
       </div>
     );
