@@ -78,6 +78,7 @@ header {
 .App form button img {
   height: 12px;
 }
+
 .render {
   width: 100%;
 }
@@ -119,4 +120,20 @@ header {
 .filters {
   display: flex;
   flex-direction: column;
+}
+
+.filters label {
+  text-transform: capitalize;
+}
+
+.render {
+  padding: 0 3em;
+}
+
+.render h1 {
+  font-size: 1.5em;
+}
+
+.render button {
+  padding: 2em 2em;
 }

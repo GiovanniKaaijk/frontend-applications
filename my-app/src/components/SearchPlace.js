@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 import Search from "../images/search-icon.svg";
 import Filter from "./Filter";
 export class searchPlace extends Component {
@@ -22,12 +23,13 @@ export class searchPlace extends Component {
     e.preventDefault();
     this.props.place(this.state.place);
     this.setState({ place: "" });
+    this.props.history.push('/overview');
   };
 
   render() {
     return (
       <div className="form">
-        <form onSubmit={this.submit}>
+        <form onSubmit={this.submit.bind(this)}>
           <input
             type="text"
             name="place"
@@ -54,4 +56,4 @@ export class searchPlace extends Component {
   }
 }
 
-export default searchPlace;
+export default withRouter(searchPlace);

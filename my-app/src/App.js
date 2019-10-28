@@ -27,12 +27,10 @@ class App extends React.Component {
       "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-02/sparql";
     //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
     const query = `
-    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX dc: <http://purl.org/dc/elements/1.1/>
     PREFIX dct: <http://purl.org/dc/terms/>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
     SELECT ?cho ?title ?placeName ?type ?year ?pic WHERE {
       ?place skos:prefLabel ?placeName .
@@ -64,30 +62,22 @@ class App extends React.Component {
     };
     runQuery(url, query);
   };
-
+ 
   getData = place => {
-    //Github CMDA
+    //Github CMDA 
     const url =
       "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-02/sparql";
     //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
     const query = `
-    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX dc: <http://purl.org/dc/elements/1.1/>
     PREFIX dct: <http://purl.org/dc/terms/>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-    SELECT ?cho ?title ?placeName ?type ?year ?pic WHERE {
+    SELECT ?cho ?placeName ?year WHERE {
       ?place skos:prefLabel ?placeName .
     VALUES ?placeName { "${place}"}
-      ?cho dct:spatial ?place ;
-        dc:type ?type ;
-        dct:created ?year ;
-        edm:isShownBy ?pic ;
-        dc:title ?title .
+        ?cho dct:spatial ?place ;
+        dct:created ?year .
       FILTER (xsd:integer(?year))
-      FILTER langMatches(lang(?title), "ned")
       ${this.state.queryfilter}
     }
     ORDER BY ASC(?year)
@@ -98,17 +88,17 @@ class App extends React.Component {
       fetch(url + "?query=" + encodeURIComponent(query) + "&format=json")
         .then(res => res.json())
         .then(json => {
-          json.results.bindings.map(data => delete data.title["xml:lang"]);
+          // json.results.bindings.map(data => delete data.title["xml:lang"]);
           let result = json.results.bindings;
           let unique = [];
           for (let i = 0; i < result.length; i++) {
             json.results.bindings[i].year.value = parseInt(
               json.results.bindings[i].year.value
             );
-            if (unique.includes(json.results.bindings[i].title.value)) {
+            if (unique.includes(json.results.bindings[i].cho.value)) {
               delete json.results.bindings[i];
             } else {
-              unique.push(json.results.bindings[i].title.value);
+              unique.push(json.results.bindings[i].cho.value);
             }
           }
           console.log(json.results.bindings);
