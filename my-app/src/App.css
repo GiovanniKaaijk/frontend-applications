@@ -136,4 +136,5 @@ header {
 
 .render button {
   padding: 2em 2em;
+  border-radius: 8px;
 }
