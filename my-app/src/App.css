@@ -49,7 +49,7 @@ header {
 
 .App form {
   margin: 20em auto 0;
-  background-color: rgba(256,256,256,0.8);
+  background-color: rgba(256,256,256,0.95);
   border-radius: 8px;
   padding: 1em;
   position: relative;
@@ -137,7 +137,30 @@ header {
 }
 
 .render button {
-  padding: 2em 2em;
-  border-radius: 8px;
+  background-color: rgb(255, 50, 104);
+  border: 0;
+  box-shadow: 0px 3px 1px 0px #ca2b55;
+  color: #fff;
+  padding: 1% 2.5% 1% 2%;
+  border-radius: 2em;
+  transition: all .3s;
+  font-size: 1em;
+  font-weight: bold;
   margin: 0 0 0 auto;
+  position: relative;
+}
+.render button:hover {
+  background-color: #ff658e;
+  cursor: pointer;
+}
+.render button:focus {
+  outline: 0;
+}
+
+.render button img {
+  position: absolute;
+  right: 10px;
+  top: 36%;
+  width: 15px;
+  height: auto;
 }

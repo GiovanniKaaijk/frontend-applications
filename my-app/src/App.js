@@ -18,7 +18,8 @@ class App extends React.Component {
       uri: "",
       img: "",
       title: "",
-      description: ""
+      description: "",
+      liked: false
     }
   };
 
@@ -55,7 +56,8 @@ class App extends React.Component {
               uri: results.cho.value,
               img: results.pic.value,
               title: results.title.value,
-              description: results.type.value
+              description: results.type.value,
+              liked: false
             }
           });
         });
@@ -81,7 +83,7 @@ class App extends React.Component {
       ${this.state.queryfilter}
     }
     ORDER BY ASC(?year)
-    LIMIT 500
+    LIMIT 1
     `;
     const runQuery = (url, query) => {
       // Call the url with the query attached, output data
@@ -109,15 +111,22 @@ class App extends React.Component {
   };
 
   //Toggle liked
-  toggleLiked = id => {
+  toggleLiked = (id) => {
+    let liked = this.state.render.liked;
+    let uri = this.state.render.uri;
+    let img = this.state.render.img;
+    let title = this.state.render.title;
+    let description = this.state.render.description;
+    console.log(liked)
     this.setState({
-      test: this.state.data.map(object => {
-        if (object.id === id) {
-          object.liked = !object.liked;
-        }
-        return object;
-      })
-    });
+      render: {
+        uri: uri,
+        img: img,
+        title: title,
+        description: description,
+        liked: !liked
+      }
+    }, console.log(this.state.render));
   };
 
   //Search a place
