@@ -2,12 +2,16 @@
 ## Nationaal Stichting Wereld Culturen
 
 The perfect website to discover more about your most favorite spots in the wold.
-
+<img width="750" alt="Schermafbeelding 2019-10-18 om 11 09 20" src="https://user-images.githubusercontent.com/43671292/67081614-c4770180-f197-11e9-8463-0415960e1102.png">
 ## Wiki
 
 Follow the progress on the [wiki](https://github.com/GiovanniKaaijk/frontend-applications/wiki).
 
-# Interested in the project? Use the following steps to clone the project to your local computer:
+## Description
+
+During this course I created a web app with React. The data I use comes from [Netwerk Digitaal Erfgoed](https://www.netwerkdigitaalerfgoed.nl/). The user has the ability to search their favorite vacation spot. The Detail page shows the different object that could have been found at that spot over time together with information about the objects.
+
+## Interested in the project? Use the following steps to clone the project to your local computer:
 
 ## Before you clone
 
@@ -31,7 +35,7 @@ git clone https://github.com/GiovanniKaaijk/frontend-applications.git
 ```
 Get into the right folder
 ```
-cd my-app
+cd frontend-apllications/my-app/
 ```
 Install used npm packages
 ```
