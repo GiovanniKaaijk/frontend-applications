@@ -80,7 +80,7 @@ header {
 }
 
 .render {
-  width: 100%;
+  max-width: 100%;
 }
 
 .render img{
@@ -128,6 +128,8 @@ header {
 
 .render {
   padding: 0 3em;
+  display: flex;
+  flex-direction: column;
 }
 
 .render h1 {
@@ -137,4 +139,5 @@ header {
 .render button {
   padding: 2em 2em;
   border-radius: 8px;
+  margin: 0 0 0 auto;
 }
