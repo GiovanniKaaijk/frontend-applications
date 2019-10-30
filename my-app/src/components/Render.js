@@ -21,9 +21,10 @@ export class Render extends Component {
           <div className="image">
             <img src={image} alt={title} />
           </div>
-          <p>{this.props.render.year}</p>
-          <p>{this.props.render.description}</p>
-
+          <div className="description">
+            <p>{this.props.render.year}</p>
+            <p>{this.props.render.description}</p>
+          </div>
             <div
               className={className}
               onClick={this.props.toggleLiked.bind(this, uri)}

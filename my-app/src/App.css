@@ -201,6 +201,7 @@ header {
 .render > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  min-height: 250px;
 
 }
 .render > div h2 {
@@ -214,12 +215,11 @@ header {
   margin: auto;
 }
 .render > div .image {
-  grid-column: 1;
+  grid-column-start: 1;
+  grid-column-end: 1;
 }
-.render > div p {
-  grid-column: 2;
-}
-.render > div p:last-of-type {
+
+.render > div .description {
   padding-top: 10px;
   grid-column-start: 2;
   grid-column-end: 4;
