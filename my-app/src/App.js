@@ -14,6 +14,7 @@ class App extends React.Component {
     place: "",
     filter: "",
     queryfilter: "",
+    liked: [],
     render: {
       uri: "",
       year: "",
@@ -53,10 +54,17 @@ class App extends React.Component {
         .then(res => res.json())
         .then(json => {
           let results = json.results.bindings[0];
-          if (results.desc.value.includes('<BR>')) {
+          if (results.desc.value.includes('<BR>') || results.desc.value.includes('<Br>') || results.desc.value.includes('<br>') || results.desc.value.includes('<bR>')) {
             let newString = results.desc.value;
             newString = newString.replace('<BR>', ' ');
+            newString = newString.replace('<bR>', ' ');
+            newString = newString.replace('<Br>', ' ');
+            newString = newString.replace('<br>', ' ');
             results.desc.value = newString;
+          }
+          let liked = false;
+          if (this.state.liked.includes(results.cho.value)) {
+            liked = true;
           }
           this.setState({
             render: {
@@ -65,7 +73,7 @@ class App extends React.Component {
               img: results.pic.value,
               title: results.title.value,
               description: results.desc.value,
-              liked: false
+              liked: liked
             }
           });
         });
@@ -123,10 +131,16 @@ class App extends React.Component {
   //Toggle liked
   toggleLiked = (id) => {
     let newProp = this.state.render;
-    newProp.liked = !newProp.liked
+    if(this.state.liked.includes(id)){
+      let index = this.state.liked.indexOf(id);
+      this.state.liked.splice(index, 1);
+    } else {
+      this.state.liked.push(id);
+    }
+    newProp.liked = !newProp.liked;
     this.setState({
       render: newProp,
-    }, console.log(this.state.render));
+    }, console.log(this.state.render), console.log(this.state.liked));
   };
 
   //Search a place

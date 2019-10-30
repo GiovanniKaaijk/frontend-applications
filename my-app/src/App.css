@@ -17,15 +17,20 @@ header div {
   display: flex;
 } 
 
-header h1 {
-  text-align: left;
-  flex: 8;
-  margin: .3em .2em;
+header div img {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin-left: 3em;
+  padding: .2em 0;
 }
 
 header a {
-  margin: auto;
+  margin: auto auto auto 0;
   margin-right: 1em;
+}
+header a:first-of-type {
+  margin-left: auto;
 }
 header {
   position: absolute;
@@ -49,7 +54,7 @@ header {
 
 .App form {
   margin: 20em auto 0;
-  background-color: rgba(256,256,256,0.95);
+  background-color: rgba(256,256,256,0.85);
   border-radius: 8px;
   padding: 1em;
   position: relative;
@@ -120,6 +125,7 @@ header {
 .filters {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .filters label {
