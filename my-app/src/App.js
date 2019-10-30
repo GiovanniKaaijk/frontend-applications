@@ -16,6 +16,7 @@ class App extends React.Component {
     queryfilter: "",
     render: {
       uri: "",
+      year: "",
       img: "",
       title: "",
       description: "",
@@ -33,12 +34,13 @@ class App extends React.Component {
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX edm: <http://www.europeana.eu/schemas/edm/>
 
-    SELECT ?cho ?title ?placeName ?type ?year ?pic WHERE {
+    SELECT ?cho ?title ?placeName ?type ?year ?pic ?desc ?description WHERE {
       ?place skos:prefLabel ?placeName .
     VALUES ?cho { <${uri}> }
       ?cho dct:spatial ?place ;
         dc:type ?type ;
         dct:created ?year ;
+        dc:description ?desc;
         edm:isShownBy ?pic ;
         dc:title ?title .
       FILTER (xsd:integer(?year))
@@ -51,12 +53,18 @@ class App extends React.Component {
         .then(res => res.json())
         .then(json => {
           let results = json.results.bindings[0];
+          if (results.desc.value.includes('<BR>')) {
+            let newString = results.desc.value;
+            newString = newString.replace('<BR>', ' ');
+            results.desc.value = newString;
+          }
           this.setState({
             render: {
               uri: results.cho.value,
+              year: results.year.value,
               img: results.pic.value,
               title: results.title.value,
-              description: results.type.value,
+              description: results.desc.value,
               liked: false
             }
           });
@@ -66,6 +74,7 @@ class App extends React.Component {
   };
  
   getData = place => {
+    console.log('Getting data...')
     //Github CMDA 
     const url =
       "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-02/sparql";
@@ -73,17 +82,19 @@ class App extends React.Component {
     const query = `
     PREFIX dct: <http://purl.org/dc/terms/>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX dc: <http://purl.org/dc/elements/1.1/>
 
-    SELECT ?cho ?placeName ?year WHERE {
+    SELECT ?cho ?placeName ?year ?desc WHERE {
       ?place skos:prefLabel ?placeName .
     VALUES ?placeName { "${place}"}
         ?cho dct:spatial ?place ;
+        dc:description ?desc;
         dct:created ?year .
       FILTER (xsd:integer(?year))
       ${this.state.queryfilter}
     }
     ORDER BY ASC(?year)
-    LIMIT 1
+    LIMIT 500
     `;
     const runQuery = (url, query) => {
       // Call the url with the query attached, output data
@@ -103,7 +114,6 @@ class App extends React.Component {
               unique.push(json.results.bindings[i].cho.value);
             }
           }
-          console.log(json.results.bindings);
           this.setState({ data: json.results.bindings });
         });
     };
@@ -112,20 +122,10 @@ class App extends React.Component {
 
   //Toggle liked
   toggleLiked = (id) => {
-    let liked = this.state.render.liked;
-    let uri = this.state.render.uri;
-    let img = this.state.render.img;
-    let title = this.state.render.title;
-    let description = this.state.render.description;
-    console.log(liked)
+    let newProp = this.state.render;
+    newProp.liked = !newProp.liked
     this.setState({
-      render: {
-        uri: uri,
-        img: img,
-        title: title,
-        description: description,
-        liked: !liked
-      }
+      render: newProp,
     }, console.log(this.state.render));
   };
 
@@ -225,6 +225,7 @@ class App extends React.Component {
                 <Render
                   render={this.state.render}
                   toggleLiked={this.toggleLiked}
+                  place={this.state.place}
                 />
                 <div className="timeline">
                   <Objects

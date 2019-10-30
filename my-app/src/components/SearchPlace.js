@@ -17,12 +17,15 @@ export class searchPlace extends Component {
       '"Document"'
     ]
   };
-
+  componentDidMount(){
+    const place = localStorage.getItem('place')
+    this.setState({place: place});
+  }
   change = e => this.setState({ place: e.target.value });
   submit = e => {
     e.preventDefault();
+    localStorage.setItem('place', this.state.place);
     this.props.place(this.state.place);
-    this.setState({ place: "" });
     this.props.history.push('/overview');
   };
 

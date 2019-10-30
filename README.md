@@ -19,7 +19,7 @@ During this course I created a web app with React. The data I use comes from [Ne
 * Install a Code Editor
 * An CLI(Command Line Interface) like bash or iTerm
 
-## Used (necessery sources)
+## Used (necessary sources)
 
 * NPM
 * React
@@ -49,7 +49,9 @@ npm run start
 
 ## The features brought to you on this website
 - Search historical objects found on your favorite spots
-- Rate the historical objects
+- Like the historical objects
+- Local storage
+- Filter on particular objects
 
 ## Usage
 Start the application
