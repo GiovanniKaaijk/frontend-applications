@@ -66,5 +66,9 @@ npm run build
 ## Keep up to date
 Make sure you pull the repository once in a while since we are still working on this project, you can do this by using ```git pull```
 
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
 # License
 [MIT](https://github.com/GiovanniKaaijk/frontend-applications/blob/master/LICENSE)

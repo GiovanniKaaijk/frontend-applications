@@ -18,8 +18,5 @@ export class SingleItem extends Component {
 SingleItem.propTypes = {
   object: PropTypes.object.isRequired
 };
-// const style = {
-//     backgroundColor: '#f4f4f4'
-// }
 
 export default SingleItem;
