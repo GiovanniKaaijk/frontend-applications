@@ -83,6 +83,7 @@ I'm using two SPARQL queries in this app:
 - Like the historical objects
 - Local storage
 - Filter on particular objects
+- Comment on objects (this is not fully working yet, I still need to connect it to an object but I did not have time for this so far. Comments now get displayed on all object pages)
 
 ## Interested in the project? Use the following steps to clone the project to your local computer:
 
