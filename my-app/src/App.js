@@ -223,7 +223,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="https://giovannikaaijk.github.io/frontend-applications/">
         <div className="App">
           <Header />
           <Route
