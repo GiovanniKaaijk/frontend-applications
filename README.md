@@ -29,7 +29,6 @@ During this course I created a web app with React. The data I use comes from [Ne
 ### Api
 
 Trough an API the app collects different objects, the following data is requested from the objects:
-<!-- language: json -->
 ```
 {
     description: "Deze potten behoren toe aan de verschillende leden van een gezin en bepalen de hoeveelheid bier dat hen door de vrouw des huizes wordt gegeven. ..."
@@ -40,8 +39,7 @@ Trough an API the app collects different objects, the following data is requeste
 }
 ```
 I'm using two SPARQL queries in this app:
-Collect all the items matching the place and filters:
-<!-- language: SparQL -->
+- Collect all the items matching the place and filters:
 ```
     PREFIX dct: <http://purl.org/dc/terms/>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -59,8 +57,7 @@ Collect all the items matching the place and filters:
     ORDER BY ASC(?year)
     LIMIT 500
 ```
-Request data from the object:
-<!-- language: SparQL -->
+- Request data from the object:
 ```
     PREFIX dc: <http://purl.org/dc/elements/1.1/>
     PREFIX dct: <http://purl.org/dc/terms/>

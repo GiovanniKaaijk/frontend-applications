@@ -15,6 +15,7 @@ class App extends React.Component {
     filter: "",
     queryfilter: "",
     liked: [],
+    comment: [],
     render: {
       uri: "",
       year: "",
@@ -205,12 +206,19 @@ class App extends React.Component {
     }
   };
 
-  //Return string
+  //Return string for filters without "
   string = (string) => {
     let newString = string;
     newString = newString.replace('"', '');
     newString = newString.replace('"', '');
     return newString
+  }
+
+  //Create comments
+  comment = (comment) => {
+    let comments = this.state.comment;
+    comments.push(comment);
+    this.setState({comment: comments},console.log(this.state.comment));
   }
 
   render() {
@@ -240,6 +248,8 @@ class App extends React.Component {
                   render={this.state.render}
                   toggleLiked={this.toggleLiked}
                   place={this.state.place}
+                  comment={this.comment}
+                  renderComments={this.state.comment}
                 />
                 <div className="timeline">
                   <Objects
