@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/frontend-applications/static/css/main.95ae2688.chunk.css",
+    "main.js": "/frontend-applications/static/js/main.128e7bbb.chunk.js",
+    "main.js.map": "/frontend-applications/static/js/main.128e7bbb.chunk.js.map",
+    "runtime-main.js": "/frontend-applications/static/js/runtime-main.803219c5.js",
+    "runtime-main.js.map": "/frontend-applications/static/js/runtime-main.803219c5.js.map",
+    "static/js/2.05a1bd62.chunk.js": "/frontend-applications/static/js/2.05a1bd62.chunk.js",
+    "static/js/2.05a1bd62.chunk.js.map": "/frontend-applications/static/js/2.05a1bd62.chunk.js.map",
+    "index.html": "/frontend-applications/index.html",
+    "precache-manifest.589bc60b8b66457d449bd1b5c6bc2690.js": "/frontend-applications/precache-manifest.589bc60b8b66457d449bd1b5c6bc2690.js",
+    "service-worker.js": "/frontend-applications/service-worker.js",
+    "static/css/main.95ae2688.chunk.css.map": "/frontend-applications/static/css/main.95ae2688.chunk.css.map",
+    "static/media/heart.svg": "/frontend-applications/static/media/heart.6a618a65.svg",
+    "static/media/pinpoint.svg": "/frontend-applications/static/media/pinpoint.5a8cc097.svg",
+    "static/media/search-icon.svg": "/frontend-applications/static/media/search-icon.e57e1c79.svg",
+    "static/media/wereldMuseum.png": "/frontend-applications/static/media/wereldMuseum.77c1a552.png",
+    "static/media/whiteHeart.svg": "/frontend-applications/static/media/whiteHeart.5e5f535d.svg",
+    "static/media/App.css": "/frontend-applications/static/media/worldmap.bc0e8756.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.803219c5.js",
+    "static/js/2.05a1bd62.chunk.js",
+    "static/css/main.95ae2688.chunk.css",
+    "static/js/main.128e7bbb.chunk.js"
+  ]
+}
