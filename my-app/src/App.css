@@ -226,3 +226,15 @@ header {
   grid-column-start: 2;
   grid-column-end: 4;
 }
+
+.render form {
+  border: 1px solid rgba(33,33,33,.8);
+  margin-top: 20px;
+}
+.render form button {
+  color: white;
+  width: 100px;
+}
+.render .comment {
+  grid-column: 1;
+}

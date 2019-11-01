@@ -54,7 +54,7 @@ export class Render extends Component {
               </button>
             </form>
             {this.props.renderComments.map(comment => (
-              <p>{comment}</p>
+              <p className="comment">{comment}</p>
             ))}
         </div>
         ) : <p>Zoek een plaats en klik op een bullet om een object weer te geven.</p> }
